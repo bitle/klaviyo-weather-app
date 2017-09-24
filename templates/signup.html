@@ -18,7 +18,9 @@
         <div class="form-group">
             <label for="inputLocation" class="sr-only">Location</label>
             <select class="form-control" id="inputLocation" required>
-                <option>Boston, MA</option>
+                {% for city in cities %}
+                    <option value="{{ city.city }}, {{ city.state }}">{{ city.city }}, {{ city.state }}</option>
+                {% endfor %}
             </select>
         </div>
 
