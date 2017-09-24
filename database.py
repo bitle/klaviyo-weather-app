@@ -5,6 +5,10 @@ from sqlalchemy_utils import EncryptedType
 db = SQLAlchemy()
 
 
+def get_secret_key():
+    return os.getenv('EMAIL_ENCRYPTION_KEY') or "secret_key"
+
+
 class Subscriber(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     email = db.Column(EncryptedType(db.String(255), get_secret_key()), unique=True)
@@ -13,7 +17,3 @@ class Subscriber(db.Model):
     def __init__(self, email, city):
         self.email = email
         self.city = city
-
-
-def get_secret_key():
-    return os.getenv('EMAIL_ENCRYPTION_KEY') or "secret_key"
