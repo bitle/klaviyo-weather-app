@@ -8,6 +8,23 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
 </head>
 <body>
+<div class="container" style="width: 600px;">
 
+    <form class="form-signin" method="POST">
+        <h2 class="form-signin-heading">Weather Powered Email</h2>
+        <label for="inputEmail" class="sr-only">Email address</label>
+        <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
+
+        <div class="form-group">
+            <label for="inputLocation" class="sr-only">Location</label>
+            <select class="form-control" id="inputLocation" required>
+                <option>Boston, MA</option>
+            </select>
+        </div>
+
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Subscribe</button>
+    </form>
+
+</div> <!-- /container -->
 </body>
 </html>
