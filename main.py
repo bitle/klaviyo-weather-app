@@ -1,15 +1,10 @@
-from flask import Flask
-from views import status_apis
-
-
-def create_app(debug=False):
-    app = Flask(__name__)
-    app.debug = debug
-
-    return app
+from app import create_app
 
 
 if __name__ == "__main__":
+    # Running in debug mode
     app = create_app(debug=True)
-    app.register_blueprint(status_apis)
     app.run()
+else:
+    # Running from gunicorn
+    app = create_app()
