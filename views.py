@@ -13,8 +13,11 @@ def status():
 
 
 @forms.route('/')
-def signup_form(error=None):
-    return render_template("signup.html", cities=get_cities(), error=error)
+def signup_form(message=None, error=None):
+    return render_template("signup.html",
+                           cities=get_cities(),
+                           error=error,
+                           message=message)
 
 
 @forms.route('/', methods=['POST'])
@@ -27,4 +30,4 @@ def signup_form_submit():
     except SubscriptionError:
         return signup_form(error="Subscriber with this email already exists")
 
-    return signup_form()
+    return signup_form(message="Thank you for subscribing to Weather Powered Email!")
