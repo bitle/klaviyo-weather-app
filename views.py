@@ -1,6 +1,4 @@
-import json
-
-from flask import Blueprint, render_template
+from flask import Blueprint, render_template, request
 
 from cities import get_cities
 
@@ -16,3 +14,11 @@ def status():
 @forms.route('/')
 def signup_form():
     return render_template("signup.html", cities=get_cities())
+
+
+@forms.route('/', methods=['POST'])
+def signup_form_submit():
+    email = request.form['email']
+    location = request.form['location']
+
+    return signup_form()
