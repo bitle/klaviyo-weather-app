@@ -1,6 +1,7 @@
 from flask import Blueprint, render_template, request
 
 from cities import get_cities
+from subscribers import add_subscriber
 
 status_apis = Blueprint('status_apis', __name__)
 forms = Blueprint('forms', __name__, template_folder='templates')
@@ -20,5 +21,7 @@ def signup_form():
 def signup_form_submit():
     email = request.form['email']
     location = request.form['location']
+
+    add_subscriber(email, location)
 
     return signup_form()
