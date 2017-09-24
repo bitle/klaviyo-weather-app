@@ -13,11 +13,11 @@
     <form class="form-signin" method="POST">
         <h2 class="form-signin-heading">Weather Powered Email</h2>
         <label for="inputEmail" class="sr-only">Email address</label>
-        <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
+        <input type="email" id="inputEmail" name="email" class="form-control" placeholder="Email address" required autofocus>
 
         <div class="form-group">
             <label for="inputLocation" class="sr-only">Location</label>
-            <select class="form-control" id="inputLocation" required>
+            <select class="form-control" name="location" id="inputLocation" required>
                 {% for city in cities %}
                     <option value="{{ city.city }}, {{ city.state }}">{{ city.city }}, {{ city.state }}</option>
                 {% endfor %}
