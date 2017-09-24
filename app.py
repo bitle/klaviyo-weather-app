@@ -1,6 +1,6 @@
 import os
 from flask import Flask
-from views import status_apis
+from views import status_apis, forms
 from database import db
 
 
@@ -12,6 +12,7 @@ def create_app(debug=False):
     # SQLALCHEMY_TRACK_MODIFICATIONS adds significant overhead
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
     app.register_blueprint(status_apis)
+    app.register_blueprint(forms)
     db.init_app(app)
 
     return app
