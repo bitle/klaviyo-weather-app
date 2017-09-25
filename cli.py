@@ -2,9 +2,7 @@ import argparse
 
 import sys
 
-
-def send_emails():
-    pass
+from sender import send_emails
 
 
 def main():
