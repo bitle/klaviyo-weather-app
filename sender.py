@@ -1,3 +1,5 @@
+from app import create_app
+from database import Subscriber
 from wunderground import get_current_conditions, get_average_temperature
 
 
@@ -17,4 +19,13 @@ def send_email(email, location):
     city, state = location.split(', ')
 
     subject = create_subject(city, state)
-    print subject
+    print "%s - %s" % (email, subject)
+
+
+def send_emails():
+    # I need this Flask app, because I made a mistake of using Flask-Sqlalchemy
+    flask_app = create_app()
+    with flask_app.app_context():
+        subscribers = Subscriber.query.all()
+        for subscriber in subscribers:
+            send_email(subscriber.email, subscriber.city)
