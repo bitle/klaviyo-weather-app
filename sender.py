@@ -39,7 +39,7 @@ def send_email_console(email, location):
 
 
 def send_email_mailgun(email, location):
-    base_url = "https://api.mailgun.net/v3/sandbox38be6e72fd2d416a900adad83bdf4bda.mailgun.org"
+    base_url = "https://api.mailgun.net/v3/mg.suleymanov.us"
     api_key = os.getenv('MAILGUN_API_KEY')
     email_from = 'damir@suleymanov.us'
 
