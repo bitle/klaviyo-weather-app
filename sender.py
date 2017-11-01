@@ -3,10 +3,7 @@ from database import Subscriber
 from wunderground import get_current_conditions, get_average_temperature
 
 
-def create_subject(city, state):
-    current_temperature, condition = get_current_conditions(city, state)
-    average_temperature = get_average_temperature(city, state)
-
+def create_subject(current_temperature, average_temperature, condition):
     if condition == 'Clear' or average_temperature + 5 <= current_temperature:
         return "It's nice out! Enjoy a discount on us."
     elif "Rain" in condition or current_temperature <= average_temperature - 5:
@@ -15,10 +12,20 @@ def create_subject(city, state):
         return "Enjoy a discount on us."
 
 
+def create_email(city, state):
+    current_temperature, condition = get_current_conditions(city, state)
+    average_temperature = get_average_temperature(city, state)
+
+    subject = create_subject(current_temperature, average_temperature, condition)
+    body = ""
+    return subject, body
+
+
 def send_email(email, location):
     city, state = location.split(', ')
 
-    subject = create_subject(city, state)
+    subject, body = create_email(city, state)
+
     print "%s - %s" % (email, subject)
 
 
