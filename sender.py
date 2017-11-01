@@ -25,7 +25,7 @@ def create_email(city, state):
     return subject, body
 
 
-def send_email(email, location):
+def send_email_console(email, location):
     city, state = location.split(', ')
 
     subject, body = create_email(city, state)
@@ -39,4 +39,4 @@ def send_emails():
     with flask_app.app_context():
         subscribers = Subscriber.query.all()
         for subscriber in subscribers:
-            send_email(subscriber.email, subscriber.city)
+            send_email_console(subscriber.email, subscriber.city)
