@@ -71,7 +71,7 @@ def send_email_mailgun(email, location):
     elif response.status_code in [500, 502, 503, 504]:
         print "Server Errors - something is wrong on Mailgun's end"
 
-    # print response.text
+    print "Sent an email to %s" % email
 
 
 def send_emails():
