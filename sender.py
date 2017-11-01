@@ -30,7 +30,7 @@ def send_email(email, location):
 
     subject, body = create_email(city, state)
 
-    print "%s - %s" % (email, subject)
+    print "%s - %s\n\t%s" % (email, subject, body)
 
 
 def send_emails():
