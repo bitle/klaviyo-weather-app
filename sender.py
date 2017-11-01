@@ -17,7 +17,11 @@ def create_email(city, state):
     average_temperature = get_average_temperature(city, state)
 
     subject = create_subject(current_temperature, average_temperature, condition)
-    body = ""
+    body = "Current temperature in {city}, {state} is {current_temperature}, {condition}."\
+        .format(city=city,
+                state=state,
+                current_temperature=current_temperature,
+                condition=condition)
     return subject, body
 
 
