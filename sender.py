@@ -41,7 +41,7 @@ def send_email_console(email, location):
 def send_email_mailgun(email, location):
     base_url = "https://api.mailgun.net/v3/sandbox38be6e72fd2d416a900adad83bdf4bda.mailgun.org"
     api_key = os.getenv('MAILGUN_API_KEY')
-    email_from = 'damir.suleymanov@gmail.com'
+    email_from = 'damir@suleymanov.us'
 
     if not api_key:
         raise ValueError("Please provide MAILGUN_API_KEY")
