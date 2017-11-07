@@ -8,7 +8,7 @@ services:
      - .:/code
     environment:
       - "SQLALCHEMY_DATABASE_URI=postgres://klaviyo:password@postgres:5432/klaviyo"
-      - "MAILGUN_API_KEY=key-db1e2c1d2894057d14a9234d10213331"
+      - "MAILGUN_API_KEY=<PLEASE_PROVIDE_KEY>"
     depends_on:
       - postgres
   postgres:
