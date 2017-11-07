@@ -1,0 +1,3 @@
+CREATE DATABASE klaviyo;
+CREATE USER klaviyo WITH PASSWORD 'password';
+GRANT ALL PRIVILEGES ON DATABASE "klaviyo" to klaviyo;
