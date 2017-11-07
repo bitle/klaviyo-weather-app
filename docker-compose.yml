@@ -1,0 +1,19 @@
+version: '3'
+services:
+  web:
+    build: .
+    ports:
+     - "5000:5000"
+    volumes:
+     - .:/code
+    environment:
+      - "SQLALCHEMY_DATABASE_URI=postgres://klaviyo:password@postgres:5432/klaviyo"
+    depends_on:
+      - postgres
+  postgres:
+    container_name: "postgres"
+    image: "postgres:9.4"
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
